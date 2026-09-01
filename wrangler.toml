@@ -2,5 +2,7 @@ name = "suzana-tricologia"
 pages_build_output_dir = "."
 compatibility_date = "2026-09-01"
 
-# Depois de criar o D1, você pode configurar o binding DB pelo painel da Cloudflare.
-# O arquivo funciona sem colocar o ID do banco no GitHub.
+[[d1_databases]]
+binding = "DB"
+database_name = "dra-suzana-tricologia-db"
+database_id = "1dd3e210-fac5-4a36-ba3e-df4df44d1e60"
