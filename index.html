@@ -6,8 +6,8 @@
   <title>Dra. Suzana Cavalcante | Tricologia no Rio de Janeiro</title>
   <meta name="description" content="Avaliação tricoscópica, cuidado capilar personalizado e acompanhamento com a Dra. Suzana Cavalcante, no Rio de Janeiro." />
   <meta name="theme-color" content="#0b3023" />
-  <link rel="icon" type="image/png" href="/assets/logo-suzana.png" />
-  <link rel="apple-touch-icon" href="/assets/logo-suzana.png" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png?v=74" />
+  <link rel="apple-touch-icon" href="/assets/favicon.png?v=74" />
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
@@ -15,12 +15,15 @@
   <meta property="og:title" content="Dra. Suzana Cavalcante | Tricologia no Rio de Janeiro" />
   <meta property="og:description" content="Avaliação especializada, tricoscopia e cuidado capilar personalizado com a Dra. Suzana Cavalcante, no Rio de Janeiro." />
   <meta property="og:url" content="https://dra-suzana-tricologia.pages.dev/" />
-  <meta property="og:image" content="https://dra-suzana-tricologia.pages.dev/assets/logo-suzana.png" />
-  <meta property="og:image:alt" content="Logo Dra. Suzana Cavalcante Tricologista" />
+  <meta property="og:image" content="https://dra-suzana-tricologia.pages.dev/assets/social-preview.jpg?v=74" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="Dra. Suzana Cavalcante — Tricologista no Rio de Janeiro" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Dra. Suzana Cavalcante | Tricologia no Rio de Janeiro" />
   <meta name="twitter:description" content="Avaliação especializada, tricoscopia e cuidado capilar personalizado no Rio de Janeiro." />
-  <meta name="twitter:image" content="https://dra-suzana-tricologia.pages.dev/assets/logo-suzana.png" />
+  <meta name="twitter:image" content="https://dra-suzana-tricologia.pages.dev/assets/social-preview.jpg?v=74" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -107,7 +110,8 @@
         <div class="review-form-head"><div><small>DEIXE SUA AVALIAÇÃO</small><h3>Como foi sua experiência?</h3><p>Leva menos de um minuto.</p></div><span class="review-heart">♡</span></div>
         <div class="review-fields-grid"><label>Seu nome<input id="reviewName" type="text" placeholder="Digite seu nome" /></label><div class="rating-picker"><span>Sua nota</span><div id="starPicker" aria-label="Escolha de 1 a 5 estrelas"><button data-rating="1" aria-label="1 estrela">★</button><button data-rating="2" aria-label="2 estrelas">★</button><button data-rating="3" aria-label="3 estrelas">★</button><button data-rating="4" aria-label="4 estrelas">★</button><button data-rating="5" aria-label="5 estrelas">★</button></div><small id="ratingLabel">Selecione de 1 a 5 estrelas</small></div></div>
         <label>Seu comentário<textarea id="reviewComment" rows="4" placeholder="Conte como foi seu atendimento, o cuidado recebido e sua experiência"></textarea></label>
-        <label class="photo-upload">Sua foto <small>(opcional)</small><input id="reviewPhoto" type="file" accept="image/png,image/jpeg,image/webp" /><span>Adicionar uma foto opcional</span></label>
+        <label class="photo-upload">Sua foto <small>(opcional)</small><input id="reviewPhoto" type="file" accept="image/png,image/jpeg,image/webp" /><span>Adicionar uma foto opcional</span><em>Você poderá ajustar e centralizar seu rosto antes de enviar.</em></label>
+        <div class="crop-modal" id="cropModal" aria-hidden="true"><div class="crop-dialog"><div class="crop-head"><div><small>AJUSTE SUA FOTO</small><h3>Centralize seu rosto</h3><p>Arraste a imagem e use o zoom. A foto será publicada em formato redondo.</p></div><button id="cropClose" type="button" aria-label="Fechar">×</button></div><div class="crop-stage" id="cropStage"><img id="cropImage" alt="Prévia da foto" /></div><div class="crop-controls"><label>Zoom <input id="cropZoom" type="range" min="1" max="3" step="0.01" value="1" /></label><div><button class="btn btn-ghost" id="cropCancel" type="button">Cancelar</button><button class="btn btn-primary" id="cropApply" type="button">Usar esta foto</button></div></div></div></div>
         <div class="review-submit-row"><button class="btn btn-primary" id="sendReview" type="button">Enviar minha avaliação</button><p id="reviewStatus" class="review-status"></p></div>
       </div>
       <div class="approved-reviews-block">
@@ -115,6 +119,8 @@
         <div class="testimonial-track responsive-reviews" id="testimonialTrack"></div>
       </div>
     </section>
+    <section class="location-section shell reveal" id="contato"><div class="section-heading"><span class="eyebrow green">LOCALIZAÇÃO</span><h2>Onde encontrar a Dra. Suzana</h2><p>R. José Bonifácio, 1050 – Bloco 2, sala 416 – Todos os Santos, Rio de Janeiro – RJ, 20770-240.</p></div><div class="location-map premium-surface"><iframe title="Mapa — Dra. Suzana Cavalcante Tricologia" src="https://www.google.com/maps?q=R.%20Jos%C3%A9%20Bonif%C3%A1cio%2C%201050%2C%20Todos%20os%20Santos%2C%20Rio%20de%20Janeiro%2C%20RJ%2C%2020770-240&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><div class="location-card"><span class="eyebrow">CONSULTÓRIO</span><h3>Dra. Suzana Cavalcante Tricologia</h3><p>R. José Bonifácio, 1050<br>Bloco 2, sala 416<br>Todos os Santos • Rio de Janeiro – RJ</p><a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=R.%20Jos%C3%A9%20Bonif%C3%A1cio%2C%201050%2C%20Todos%20os%20Santos%2C%20Rio%20de%20Janeiro%2C%20RJ%2C%2020770-240">Abrir no Google Maps</a></div></div></section>
+
     <section class="faq shell reveal"><div class="section-heading"><span class="eyebrow green">DÚVIDAS FREQUENTES</span><h2>Antes da sua avaliação</h2></div><div class="faq-list"><details><summary>Como funciona a primeira avaliação?</summary><p>A Dra. Suzana conversa com você, entende sua queixa e realiza a avaliação necessária para orientar os próximos passos.</p></details><details><summary>Preciso levar exames?</summary><p>Se você tiver exames recentes relacionados ao seu quadro, pode levá-los. A necessidade de outros exames poderá ser orientada durante o atendimento.</p></details><details><summary>Como faço para agendar?</summary><p>Use o formulário de agendamento desta página ou fale diretamente pelo WhatsApp.</p></details></div></section>
 
     <section class="final-cta reveal premium-surface"><div><span class="eyebrow">CUIDADO PERSONALIZADO</span><h2>Seu cabelo conta uma história.<br><em>Cuide dele com quem entende.</em></h2></div><div><a class="btn btn-gold" href="#agendamento">Agendar minha avaliação</a><a class="btn btn-light" target="_blank" rel="noopener" href="https://wa.me/5521983820045">Falar com a Dra. Suzana</a></div></section>
