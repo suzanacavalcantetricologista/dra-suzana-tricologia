@@ -15,6 +15,14 @@ export async function onRequest(context){
  const {request,env}=context; if(!env.DB)return json({error:'D1 não conectado. Crie o binding DB no Cloudflare.'},503);
  const url=new URL(request.url),path=(context.params.path||[]).join('/'),method=request.method.toUpperCase(); const secret=env.ADMIN_SESSION_SECRET||'CHANGE-ME-IN-CLOUDFLARE';
  try{
+  if(path==='social-preview'&&method==='GET'){
+   const ap=await setting(env.DB,'appearance',{});
+   if(ap?.socialPreview&&String(ap.socialPreview).startsWith('data:image/')){
+    const m=String(ap.socialPreview).match(/^data:(image\/[a-zA-Z0-9.+-]+);base64,(.+)$/);
+    if(m)return new Response(unb64(m[2]),{headers:{'content-type':m[1],'cache-control':'public, max-age=300'}});
+   }
+   return Response.redirect(new URL('/assets/social-preview.jpg',request.url).toString(),302);
+  }
   if(path==='public'&&method==='GET')return json(await publicData(env.DB));
   if(path==='slots'&&method==='GET'){const date=url.searchParams.get('date');if(!date)return json({error:'Data obrigatória'},400);const av=await setting(env.DB,'availability',{}),day=new Date(date+'T12:00:00').getDay(),cfg=av[day];if(!cfg?.on)return json({slots:[]});const used=(await env.DB.prepare("SELECT time FROM bookings WHERE date=? AND status!='Cancelado'").bind(date).all()).results.map(x=>x.time);const slots=[];for(let h=Number(cfg.start.slice(0,2));h<Number(cfg.end.slice(0,2));h++){const t=String(h).padStart(2,'0')+':00';if(!used.includes(t))slots.push(t)}return json({slots})}
   if(path==='bookings'&&method==='POST'){const b=await body(request);if(!clean(b.name)||!clean(b.phone)||!clean(b.date)||!clean(b.time)||!clean(b.service))return json({error:'Preencha os campos obrigatórios.'},400);const clash=await env.DB.prepare("SELECT id FROM bookings WHERE date=? AND time=? AND status!='Cancelado'").bind(b.date,b.time).first();if(clash)return json({error:'Esse horário acabou de ser reservado. Escolha outro.'},409);const r=await env.DB.prepare("INSERT INTO bookings(service,date,time,name,phone,notes,status) VALUES(?,?,?,?,?,?,'Pendente')").bind(clean(b.service),clean(b.date),clean(b.time),clean(b.name),clean(b.phone),clean(b.notes)).run();return json({ok:true,id:r.meta.last_row_id},201)}
